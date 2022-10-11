@@ -1,0 +1,167 @@
+// ================================================================================
+// CARDS
+// ================================================================================
+
+section {
+    display: flex;
+    justify-content: left;
+    flex-wrap: wrap;
+    min-height: 30vh;
+}
+
+.card {
+    width: 200px;
+    padding: 0;
+    margin: 10px;
+    margin-left: 0px;
+    margin-right: 42px;
+    text-align: center;
+    animation: card 0.8s ease-in-out;
+}
+
+@keyframes card {
+    from {
+        transform: translateY(10px);
+        opacity: 0;
+    }
+    to {
+        transform: none;
+        opacity: 100%;
+    }
+}
+
+.card .name {
+    margin-top: 10px;
+    margin-bottom: 5px;
+    font-size: 14px;
+}
+
+.card img {
+    width: 200px;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 5px;
+    -webkit-box-shadow: 5px 9px 9px 0px rgba(166, 156, 166, 1);
+    -moz-box-shadow: 5px 9px 9px 0px rgba(166, 156, 166, 1);
+    box-shadow: 5px 9px 9px 0px rgba(166, 156, 166, 1);
+}
+
+.bnt {
+    padding: 10px;
+    width: 100%;
+    -webkit-box-shadow: 5px 9px 9px 0px rgba(166, 156, 166, 1);
+    -moz-box-shadow: 5px 9px 9px 0px rgba(166, 156, 166, 1);
+    box-shadow: 5px 9px 9px 0px rgba(166, 156, 166, 1);
+    letter-spacing: 1px;
+
+    background-color: rgb(245, 124, 0);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    color: white;
+    margin-bottom: 10px;
+
+    &:hover {
+        background-color: rgb(230, 74, 25);
+    }
+}
+
+.bnt2 {
+    padding: 10px;
+    width: 100%;
+    -webkit-box-shadow: 5px 9px 9px 0px rgba(166, 156, 166, 1);
+    -moz-box-shadow: 5px 9px 9px 0px rgba(166, 156, 166, 1);
+    box-shadow: 5px 9px 9px 0px rgba(166, 156, 166, 1);
+    letter-spacing: 1px;
+
+    background-color: var(--color-palette-violet-2);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    color: white;
+    margin-bottom: 20px;
+
+    &:hover {
+        background-color: var(--color-palette-violet);
+    }
+
+    &:disabled {
+        background-color: rgb(224, 224, 224);
+        color: rgb(25, 25, 25);
+        cursor: auto;
+    }
+}
+
+.bnt3 {
+    padding: 10px;
+    width: 100%;
+    -webkit-box-shadow: 5px 9px 9px 0px rgba(166, 156, 166, 1);
+    -moz-box-shadow: 5px 9px 9px 0px rgba(166, 156, 166, 1);
+    box-shadow: 5px 9px 9px 0px rgba(166, 156, 166, 1);
+    letter-spacing: 1px;
+
+    background-color: var(--color-palette-red);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    color: white;
+    margin-bottom: 20px;
+
+    &:hover {
+        background-color: rgb(183, 28, 28);
+    }
+}
+
+.tt {
+    padding: 0;
+    border: none;
+    cursor: pointer;
+}
+
+.pp {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    margin-bottom: 10px;
+    font-size: 12px;
+}
+
+.pp:hover {
+    text-decoration: underline;
+}
+
+.card2 {
+    width: 420px;
+    margin-bottom: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    text-align: center;
+    animation: card 1s ease-in-out;
+    margin-right: 60px;
+
+    p {
+        margin: 10px;
+    }
+
+    img {
+        width: 200px;
+        height: 300px;
+    }
+}
+
+@media (max-width: 700px) {
+    section {
+        justify-content: center;
+    }
+
+    .card {
+        margin: 5px;
+    }
+
+    .card2 {
+        margin: 0;
+    }
+}
+
+

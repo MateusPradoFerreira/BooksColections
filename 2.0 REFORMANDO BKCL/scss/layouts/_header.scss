@@ -1,0 +1,14 @@
+// ================================================================================
+// HEADER
+// ================================================================================
+
+.l-header {
+    height: 12vh;
+    background-color: var(--color-palette-violet);
+    display: flex;
+    padding-left: 5vw;
+    padding-right: 5vw;
+    justify-content: space-between;
+    align-items: center;
+    grid-area: header;
+}

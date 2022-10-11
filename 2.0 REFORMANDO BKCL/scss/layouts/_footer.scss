@@ -1,0 +1,16 @@
+// ================================================================================
+// FOOTER
+// ================================================================================
+
+.l-footer {
+    height: 20vh;
+    background-color: var(--color-palette-violet);
+    display: flex;
+    padding-left: 5vw;
+    padding-right: 5vw;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    padding-top: 20px;
+    grid-area: footer;
+}

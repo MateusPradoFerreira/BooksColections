@@ -1,0 +1,23 @@
+// ================================================================================
+// INDEX
+// ================================================================================
+
+.l-modal-add-livro {
+    position: fixed;
+    background-color: rgba(84, 84, 84, 0.636);
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: -120%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.c-modal-add-box {
+    width: 700px;
+    height: 550px;
+    padding: 70px;
+    border-radius: 5px;
+    background-color: white;
+}

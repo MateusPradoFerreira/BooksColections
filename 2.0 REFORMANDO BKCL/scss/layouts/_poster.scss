@@ -1,0 +1,31 @@
+// ================================================================================
+// POSTER
+// ================================================================================
+
+.l-poster {
+    width: 100%;
+    padding: 2vw 5vw;
+    padding-bottom: 0;
+    display: flex;
+    grid-area: poster;
+}
+
+.c-poster-infos {
+    margin-left: 50px;
+    width: 600px;
+    padding-top: 60px;
+
+    h1 {
+        font-weight: 500;
+        letter-spacing: 1px;
+        font-size: 50px
+    }
+
+    h3 {
+        font-weight: 400;
+    }
+}
+
+.span {
+    color: #9c27b0;
+}

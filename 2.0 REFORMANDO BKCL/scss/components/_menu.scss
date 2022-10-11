@@ -1,0 +1,23 @@
+// ================================================================================
+// MENU GERAL
+// ================================================================================
+
+.c-menu {
+    display: flex;
+    list-style: none;
+    align-items: center;
+
+    a {
+        text-decoration: none;
+
+        li {
+            font-size: 13px;
+            color: white;
+            padding: 5px 20px;
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+}
