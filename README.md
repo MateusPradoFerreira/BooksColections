@@ -1,2 +1,3 @@
 # BooksColections
-Um sistema de troca de livros completo ( ainda não responsivo )...
+Um sistema de troca de livros completo
+
