@@ -17,6 +17,23 @@
     align-items: center;
 }
 
+@media (max-width: 900px) {
+    .l-login-img {
+        display: none;
+    }
+
+    .l-login-form {
+        width: 100%;
+        min-width: 100%;
+        text-align: center;
+
+        p {
+            padding-top: 10px;
+        }
+
+    }
+}
+
 .l-login-form {
     width: 50vw;
     padding: 40px;
@@ -41,7 +58,7 @@
         }
         clip-path: polygon(0 0, 0 0, 0 100%, 0% 100%);
         animation: text_summon 1s ease-in-out forwards;
-    }
+    } 
 
     &__form {
         clip-path: polygon(0 0, 0 0, 0 100%, 0% 100%);
@@ -64,7 +81,7 @@
         }
 
         input {
-            width: 400px;
+            width: 370px;
             padding: 5px 10px;
             font-size: 11px;
         }

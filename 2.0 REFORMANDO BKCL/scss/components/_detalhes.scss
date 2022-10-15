@@ -6,6 +6,8 @@
     height: 450px;
     margin-right: 50px;
     border-radius: 5px;
+    width: 300px;
+    object-fit: cover;
 }
 
 .c-detalhes-infos {
@@ -16,5 +18,19 @@
         font-size: 14px;
         font-family: Hind;
         margin-bottom: 30px;
+    }
+}
+
+@media (max-width: 1000px) {
+    .c-detalhes-infos {
+        padding: 0;
+    }
+}
+
+
+@media (max-width: 850px) {
+    .c-detalhes-infos {
+        margin-top: 30px;
+        text-align: justify;
     }
 }

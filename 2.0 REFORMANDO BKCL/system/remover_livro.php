@@ -9,12 +9,16 @@ $query_pedidos = coletar_dados("select * from pedidos inner join livros on pedid
 
 while ($dados_pedidos = mysqli_fetch_assoc($query_pedidos)) {
     inserir_dados("insert into pedidos_recusados (id_usuario_dono, id_usuario_pedinte, motivo, nome_livro)
-    values (" . $dados_pedidos['id_usuario_dono'] . "," . $dados_pedidos['id_usuario_pedinte'] . ", 'O livro foi retirado do acervo de seu dono' , '" . $dados_pedidos['nome_livro'] ."' )");
+    values (" . $dados_pedidos['id_usuario_dono'] . "," . $dados_pedidos['id_usuario_pedinte'] . ", 'O livro foi retirado do acervo de seu dono' , '" . $dados_pedidos['nome_livro'] . "' )");
     $id_pedido = $dados_pedidos['id_pedido'];
     remover_dados("delete from pedidos where id_pedido = $id_pedido");
     remover_dados("delete from trocas_andamento where id_pedido_01 = $id_pedido or id_pedido_02 = $id_pedido");
+    unlink('../' . $dados_pedidos['imagem_livro']);
 }
 
+$livro_img = mysqli_fetch_assoc(coletar_dados("select * from livros where id_livro = $id_livro"));
+
+unlink('../' . $livro_img['imagem_livro']);
 remover_dados("delete from livros where id_livro = $id_livro");
 
 header('Location: ../meus_livros.php');

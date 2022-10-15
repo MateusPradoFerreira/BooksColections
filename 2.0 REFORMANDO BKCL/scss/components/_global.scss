@@ -25,12 +25,42 @@
     font-weight: 600;
 }
 
+.c-foto_perfil2 {
+    width: 50px;
+    height: 50px;
+    min-width: 50px;
+    min-height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    border-radius: 50%;
+    color: var(--color-palette-violet-2);
+    text-transform: uppercase;
+    font-size: 30px;
+    font-weight: 600;
+    background-color: #9c27b0;
+    color: #fff;
+    width: 150px;
+    height: 150px;
+    font-size: 70px;
+    float: left;
+    margin-right: 40px;
+}
+
+@media (max-width: 700px) {
+    .c-foto_perfil2 {
+        float: none;
+        margin-bottom: 20px;
+    }
+}
+
 .c-title {
     margin-bottom: 20px;
     font-size: 25px;
     font-weight: 500;
     letter-spacing: 2px;
-    
+
     &::first-letter {
         font-size: 30px;
     }
@@ -42,7 +72,7 @@
     form {
         display: flex;
     }
-    
+
     &__inpt {
         width: 450px;
         padding: 5px 10px;

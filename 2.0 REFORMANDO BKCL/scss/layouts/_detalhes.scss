@@ -7,4 +7,11 @@
     width: 100%;
     height: 100%;
     justify-content: center;
+    
+}
+
+@media (max-width: 850px) {
+    .l-detalhes {
+        flex-wrap: wrap;
+    }
 }

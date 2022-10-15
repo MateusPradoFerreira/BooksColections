@@ -47,7 +47,25 @@ $foto_perfil = substr(mysqli_fetch_assoc(coletar_dados("select nome_usuario from
     <header class="l-header">
         <img src="img/logo branca.png" alt="" class="c-logo">
 
-        <nav>
+        <nav id="menu2">
+            <ul class="c-menu">
+                <a style="margin-left: 30px" href="system/logout.php">
+                    <li style="padding: 0;">Sair</li>
+                </a>
+                <li>
+                    <?php
+                    if (mysqli_num_rows(coletar_dados("select * from pedidos_recusados where id_usuario_pedinte = $session")) > 0) {
+                        echo '<div class="ponto" style="background-color: red; width: 10px; height: 10px; position: absolute; margin-left: 37px;margin-top: 3px; border-radius: 50%"></div>';
+                    }
+                    ?>
+                    <button onclick="chama_menu()" class="c-foto_perfil" style="cursor: pointer; border: none">
+                        <?php echo $foto_perfil; ?>
+                    </button>
+                </li>
+            </ul>
+        </nav>
+
+        <nav id="menu">
             <ul class="c-menu">
                 <a href="feed.php">
                     <li>Home</li>
@@ -76,6 +94,43 @@ $foto_perfil = substr(mysqli_fetch_assoc(coletar_dados("select nome_usuario from
             </ul>
         </nav>
     </header>
+
+    <div class="l-menu2" id="menutty">
+        <hr>
+        <nav>
+            <ul class="c-menu2">
+                <a href="perfil_pessoal.php">
+                    <li>Perfil</li>
+                </a>
+                <a href="feed.php">
+                    <li>Home</li>
+                </a>
+                <a href="trocas.php">
+                    <li>Trocas</li>
+                </a>
+                <a href="meus_livros.php">
+                    <li>Meus Livros</li>
+                </a>
+            </ul>
+        </nav>
+        <hr>
+    </div>
+
+    <script>
+        i = 0;
+
+        function chama_menu() {
+            if (i % 2 == 0) {
+                document.getElementById('menutty').style.height = '290px';
+                document.getElementById('menutty').style.paddingBottom = '10px';
+                i = i + 1;
+            } else {
+                document.getElementById('menutty').style.height = '0';
+                document.getElementById('menutty').style.paddingBottom = '0';
+                i = i + 1;
+            }
+        }
+    </script>
 
     <div class="l-poster" <?php if ($pesqt == 1) {
                                 echo "style='display: none'";
@@ -1156,7 +1211,7 @@ $foto_perfil = substr(mysqli_fetch_assoc(coletar_dados("select nome_usuario from
                         </filter>
                     </defs>
                 </svg>
-                <p style="margin-left: 30px; font-size: 30px; color: #e53935; clip-path: polygon(0 0, 0 0, 0 100%, 0% 100%); animation: text_summon 1s ease-in-out forwards; font-weight: 500"><br><br><br>Nenhum livro foi encontrado</p>
+
             <?php
             } ?>
         </section>

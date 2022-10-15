@@ -22,10 +22,28 @@ $foto_perfil = substr(mysqli_fetch_assoc(coletar_dados("select nome_usuario from
 </head>
 
 <body>
-    <header class="l-header">
+<header class="l-header">
         <img src="img/logo branca.png" alt="" class="c-logo">
 
-        <nav>
+        <nav id="menu2">
+            <ul class="c-menu">
+                <a style="margin-left: 30px" href="system/logout.php">
+                    <li style="padding: 0;">Sair</li>
+                </a>
+                <li>
+                    <?php
+                    if (mysqli_num_rows(coletar_dados("select * from pedidos_recusados where id_usuario_pedinte = $session")) > 0) {
+                        echo '<div class="ponto" style="background-color: red; width: 10px; height: 10px; position: absolute; margin-left: 37px;margin-top: 3px; border-radius: 50%"></div>';
+                    }
+                    ?>
+                    <button onclick="chama_menu()" class="c-foto_perfil" style="cursor: pointer; border: none">
+                        <?php echo $foto_perfil; ?>
+                    </button>
+                </li>
+            </ul>
+        </nav>
+
+        <nav id="menu">
             <ul class="c-menu">
                 <a href="feed.php">
                     <li>Home</li>
@@ -41,8 +59,8 @@ $foto_perfil = substr(mysqli_fetch_assoc(coletar_dados("select nome_usuario from
                 </a>
                 <a href="perfil_pessoal.php">
                     <li>
-                    <?php
-                        if(mysqli_num_rows(coletar_dados("select * from pedidos_recusados where id_usuario_pedinte = $session")) > 0) {
+                        <?php
+                        if (mysqli_num_rows(coletar_dados("select * from pedidos_recusados where id_usuario_pedinte = $session")) > 0) {
                             echo '<div class="ponto" style="background-color: red; width: 10px; height: 10px; position: absolute; margin-left: 37px;margin-top: 3px; border-radius: 50%"></div>';
                         }
                         ?>
@@ -55,6 +73,43 @@ $foto_perfil = substr(mysqli_fetch_assoc(coletar_dados("select nome_usuario from
         </nav>
     </header>
 
+    <div class="l-menu2" id="menutty">
+        <hr>
+        <nav>
+            <ul class="c-menu2">
+                <a href="perfil_pessoal.php">
+                    <li>Perfil</li>
+                </a>
+                <a href="feed.php">
+                    <li>Home</li>
+                </a>
+                <a href="trocas.php">
+                    <li>Trocas</li>
+                </a>
+                <a href="meus_livros.php">
+                    <li>Meus Livros</li>
+                </a>
+            </ul>
+        </nav>
+        <hr>
+    </div>
+
+    <script>
+        i = 0;
+
+        function chama_menu() {
+            if (i % 2 == 0) {
+                document.getElementById('menutty').style.height = '290px';
+                document.getElementById('menutty').style.paddingBottom = '10px';
+                i = i + 1;
+            } else {
+                document.getElementById('menutty').style.height = '0';
+                document.getElementById('menutty').style.paddingBottom = '0';
+                i = i + 1;
+            }
+        }
+    </script>
+
     <div class="l-section">
         <section>
             <?php if (mysqli_num_rows($query_livros) > 0) {
@@ -64,7 +119,7 @@ $foto_perfil = substr(mysqli_fetch_assoc(coletar_dados("select nome_usuario from
                         <img class="c-detalhes-img" src=" <?= $dados_livros['imagem_livro'] ?> " alt="">
 
                         <div class="c-detalhes-infos">
-                            <h1 class="c-title"> <?= $dados_livros['nome_livro'] ?> </h1>
+                            <h1 class="c-title"> <?= $dados_livros['nome_livro'] ?> </h1> 
 
                             <form action="perfil_alheio.php">
                                 <button class="pp" name="perfil_alheio" type="submit" value="<?= $dados_livros['id_usuario_dono'] ?>">

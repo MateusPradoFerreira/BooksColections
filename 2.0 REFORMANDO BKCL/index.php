@@ -34,9 +34,9 @@ if (isset($_SESSION['usuario'])) {
     <section class="l-main">
         <div class="c-index-infos">
             <h1 class="c-index-infos__title">Bem Vindo</h1>
-            <p class="c-index-infos__text">Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Quia accusamus, error est facilis nemo hic adipisci veritatis.
-                Delectus sint, voluptas optio ipsum ullam est excepturi alias, ex dicta modi explicabo.</p>
+            <p class="c-index-infos__text">O Books Colections é um site voltado para o público que busca adquirir ou
+                desapegar de livros por meio de troca entre usuários. O projeto visa ser uma ponte
+                que liga “quem tem” e “quem busca” e está disposto a desapegar em troca de outro.</p>
             <a href="cadastre_se.php">
                 <button type="submit" class="c-index-infos__button">Cadastre-se</button>
             </a>

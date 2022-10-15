@@ -27,10 +27,28 @@ $foto_perfil = substr(mysqli_fetch_assoc(coletar_dados("select nome_usuario from
 </head>
 
 <body class="body">
-    <header class="l-header">
+<header class="l-header">
         <img src="img/logo branca.png" alt="" class="c-logo">
 
-        <nav>
+        <nav id="menu2">
+            <ul class="c-menu">
+                <a style="margin-left: 30px" href="system/logout.php">
+                    <li style="padding: 0;">Sair</li>
+                </a>
+                <li>
+                    <?php
+                    if (mysqli_num_rows(coletar_dados("select * from pedidos_recusados where id_usuario_pedinte = $session")) > 0) {
+                        echo '<div class="ponto" style="background-color: red; width: 10px; height: 10px; position: absolute; margin-left: 37px;margin-top: 3px; border-radius: 50%"></div>';
+                    }
+                    ?>
+                    <button onclick="chama_menu()" class="c-foto_perfil" style="cursor: pointer; border: none">
+                        <?php echo $foto_perfil; ?>
+                    </button>
+                </li>
+            </ul>
+        </nav>
+
+        <nav id="menu">
             <ul class="c-menu">
                 <a href="feed.php">
                     <li>Home</li>
@@ -60,7 +78,44 @@ $foto_perfil = substr(mysqli_fetch_assoc(coletar_dados("select nome_usuario from
         </nav>
     </header>
 
-    <div class="l-section">
+    <div class="l-menu2" id="menutty">
+        <hr>
+        <nav>
+            <ul class="c-menu2">
+                <a href="perfil_pessoal.php">
+                    <li>Perfil</li>
+                </a>
+                <a href="feed.php">
+                    <li>Home</li>
+                </a>
+                <a href="trocas.php">
+                    <li>Trocas</li>
+                </a>
+                <a href="meus_livros.php">
+                    <li>Meus Livros</li>
+                </a>
+            </ul>
+        </nav>
+        <hr>
+    </div>
+
+    <script>
+        i = 0;
+
+        function chama_menu() {
+            if (i % 2 == 0) {
+                document.getElementById('menutty').style.height = '290px';
+                document.getElementById('menutty').style.paddingBottom = '10px';
+                i = i + 1;
+            } else {
+                document.getElementById('menutty').style.height = '0';
+                document.getElementById('menutty').style.paddingBottom = '0';
+                i = i + 1;
+            }
+        }
+    </script>
+
+    <div class="l-section" style="min-height: 100vh;">
         <h1 class="c-title">
             Minha biblioteca
         </h1>
@@ -85,7 +140,7 @@ $foto_perfil = substr(mysqli_fetch_assoc(coletar_dados("select nome_usuario from
                 }
             } else {
                 ?>
-                <p>Nenhum iivro registrado</p>
+                <p>Nenhum livro registrado</p>
             <?php
             } ?>
         </section>
@@ -100,17 +155,17 @@ $foto_perfil = substr(mysqli_fetch_assoc(coletar_dados("select nome_usuario from
                 </h1>
 
                 <div class="l-login-form__form">
-                    <form action="system/cadastra_livro.php" method="POST" enctype="multipart/form-data" class="l-login-form__form" style="display: flex; justify-content: space-between;flex-wrap: wrap;">
+                    <form enctype="multipart/form-data" action="system/add_livro.php" method="POST" enctype="multipart/form-data" class="l-login-form__form" style="display: flex; justify-content: space-between;flex-wrap: wrap;">
                         <p>Nome do Livro</p>
                         <input type="text" style="width: 100%" name="nome_livro" required maxlength="40">
 
                         <p>Descrição</p>
                         <textarea style="resize: none; width: 100%; height: 100px" name="descricao" required maxlength="800"></textarea>
 
-                        <p>Imagen da Capa (link)</p>
-                        <input type="text" style="width: 100%" name="imagem_livro" required>
+                        <p>Capa do livro</p>
+                        <input type="file" style="width: 100%" name="imagem_livro" required>
 
-                        <button type="submit">Registrar</button>
+                        <button type="submit" name="aad">Registrar</button>
                         <button style="background-color: rgb(211,47,47)" onclick="edd_perfil()">Cancelar</button>
                     </form>
                 </div>

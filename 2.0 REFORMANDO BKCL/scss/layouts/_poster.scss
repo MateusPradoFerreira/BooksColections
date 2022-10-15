@@ -29,3 +29,10 @@
 .span {
     color: #9c27b0;
 }
+
+@media (max-width: 1200px) {
+    .c-poster-infos {
+        padding-top: 30px;
+        margin-left: 0;
+    }
+}

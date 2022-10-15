@@ -8,7 +8,8 @@
     width: 650px;
     min-width: 650px;
     padding-right: 150px;
-    
+    padding-top: 50px;
+
     &__title {
         color: var(--color-palette-violet-2);
         font-size: 50px;
@@ -54,6 +55,14 @@
 @keyframes text_summon {
     to {
         clip-path: polygon(0 0, 100% 2%, 100% 100%, 0% 100%);
+    }
+}
+
+@media (max-width: 800px) {
+    .c-index-infos {
+        width: 100%;
+        min-width: 100%;
+        padding: 50px;
     }
 }
 

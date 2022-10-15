@@ -1,6 +1,7 @@
 <?php 
 session_start();
 if (!$_SESSION['usuario']) {
-    header('Location: ../feed.php');
+    header('Location: index.php');
     exit();
 }
+ 
